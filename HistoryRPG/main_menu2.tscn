@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://fy4bioy1nlku"]
+[gd_scene load_steps=3 format=3 uid="uid://21nrvog8gubj"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_3movl"]
-[ext_resource type="Texture2D" uid="uid://dmsocplf7gb3c" path="res://coollogo_com-2529475.png" id="2_i5wcy"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_q1jpw"]
+[ext_resource type="Texture2D" uid="uid://dmsocplf7gb3c" path="res://coollogo_com-2529475.png" id="2_eg2ob"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,21 +18,13 @@ anchor_left = 0.033
 anchor_top = 0.535
 anchor_right = 0.966
 anchor_bottom = 0.674
-offset_left = 0.64
-offset_top = 0.199972
-offset_right = 0.279961
-offset_bottom = 0.0799732
+offset_left = 351.64
+offset_top = -73.8
+offset_right = -376.72
+offset_bottom = 161.08
 theme_override_constants/h_separation = 192
-columns = 3
-script = ExtResource("1_3movl")
-
-[node name="Options_Button" type="Button" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 48
-text = "Options"
-metadata/_edit_use_anchors_ = true
+theme_override_constants/v_separation = 32
+script = ExtResource("1_q1jpw")
 
 [node name="Play_Button" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -40,6 +32,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
 text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options_Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Options"
 metadata/_edit_use_anchors_ = true
 
 [node name="Quit_Button" type="Button" parent="GridContainer"]
@@ -53,8 +53,8 @@ metadata/_edit_use_anchors_ = true
 [node name="CoollogoCom-2529475" type="Sprite2D" parent="."]
 position = Vector2(960, 329)
 scale = Vector2(3.41071, 3.41071)
-texture = ExtResource("2_i5wcy")
+texture = ExtResource("2_eg2ob")
 
-[connection signal="pressed" from="GridContainer/Options_Button" to="GridContainer" method="_on_options_button_pressed"]
 [connection signal="pressed" from="GridContainer/Play_Button" to="GridContainer" method="_on_play_button_pressed"]
+[connection signal="pressed" from="GridContainer/Options_Button" to="GridContainer" method="_on_options_button_pressed"]
 [connection signal="pressed" from="GridContainer/Quit_Button" to="GridContainer" method="_on_quit_button_pressed"]

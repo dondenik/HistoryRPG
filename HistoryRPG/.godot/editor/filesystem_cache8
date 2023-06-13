@@ -1,3 +1,8 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1686096294
+::res://::1686260138
+coollogo_com-2529475.png::CompressedTexture2D::8039541388908586574::1686259928::1686259929::1::::<><>::
 icon.svg::CompressedTexture2D::5099423509966547928::1686096238::1686096294::1::::<><>::
+main_menu1.tscn::PackedScene::7144982134917766320::1686260138::0::1::::<><>::res://main_menu.gd<>uid://dmsocplf7gb3c
+main_menu.gd::GDScript::-1::1686257846::0::1::::<>GridContainer<>::
+main_menu.tscn::PackedScene::402252305811510812::1686260137::0::1::::<><>::res://main_menu.gd<>uid://dmsocplf7gb3c
+main_menu2.tscn::PackedScene::1949593404169361275::1686260164::0::1::::<><>::res://main_menu.gd<>uid://dmsocplf7gb3c

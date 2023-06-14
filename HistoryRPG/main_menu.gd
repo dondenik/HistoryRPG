@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_options_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("options_menu.tscn")
 
 
 func _on_play_button_pressed():
@@ -20,4 +20,4 @@ func _on_play_button_pressed():
 
 
 func _on_quit_button_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61qbgleko37e"]
+
+[ext_resource type="Script" path="res://fullscreen_options.gd" id="1_egxu8"]
+[ext_resource type="Script" path="res://options_menu.gd" id="1_frfan"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frfan")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -70.0
+offset_right = 202.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Display Mode: "
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+item_count = 3
+selected = 0
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+script = ExtResource("1_egxu8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 122.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 48
+text = "Back↰"
+
+[connection signal="item_focused" from="GridContainer/OptionButton" to="GridContainer/OptionButton" method="_on_item_focused"]
+[connection signal="item_selected" from="GridContainer/OptionButton" to="GridContainer/OptionButton" method="_on_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

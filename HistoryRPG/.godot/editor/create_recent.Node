@@ -1,4 +1,10 @@
+TextureProgressBar
+ProgressBar
+RichTextLabel
+Button
+Label
+MenuButton
+OptionButton
 GridContainer
 HBoxContainer
 VBoxContainer
-Button

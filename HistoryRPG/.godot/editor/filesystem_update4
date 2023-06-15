@@ -7,3 +7,6 @@ res://fullscreen_options.gd
 res://main_menu_title.gdshader
 res://options_menu.gd
 res://battle.tscn
+res://gleam.tres
+res://actions.gd
+res://MenuButton.gd

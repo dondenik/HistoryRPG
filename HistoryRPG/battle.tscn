@@ -1,3 +1,121 @@
-[gd_scene format=3 uid="uid://bs5uwwrulbbrh"]
+[gd_scene load_steps=3 format=3 uid="uid://bs5uwwrulbbrh"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://actions.gd" id="1_gjl0o"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="2_rym5k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+script = ExtResource("1_gjl0o")
+
+[node name="Button" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button2" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button3" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button4" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button5" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button6" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button7" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="Button8" type="Button" parent="GridContainer" groups=["action_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 171.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 48
+text = "Menu"
+script = ExtResource("2_rym5k")
+
+[node name="PopupPanel" type="PopupPanel" parent="MenuButton"]
+initial_position = 1
+size = Vector2i(500, 500)
+
+[node name="GridContainer" type="GridContainer" parent="MenuButton/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 496.0
+theme_override_constants/v_separation = 20
+
+[node name="QuitToMenu" type="Button" parent="MenuButton/PopupPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit To Main Menu"
+
+[node name="QuitToDesktop" type="Button" parent="MenuButton/PopupPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit To Desktop"
+
+[node name="QuitToMenu" type="ConfirmationDialog" parent="MenuButton"]
+dialog_text = "Quit To Menu?"
+
+[node name="QuitToDesktop" type="ConfirmationDialog" parent="MenuButton"]
+dialog_text = "Quit To Desktop?"
+
+[connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_pressed"]
+[connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_pressed"]
+[connection signal="confirmed" from="MenuButton/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_confirmed"]
+[connection signal="confirmed" from="MenuButton/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_confirmed"]

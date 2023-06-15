@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbee5wcb13kdv"]
+
+[ext_resource type="Shader" path="res://main_menu_title.gdshader" id="1_nhv2v"]
+
+[resource]
+shader = ExtResource("1_nhv2v")
+shader_parameter/shine_color = Color(0.9, 0.9, 0.9, 0.9)
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.01

@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs5uwwrulbbrh"]
+[gd_scene load_steps=7 format=3 uid="uid://bs5uwwrulbbrh"]
 
 [ext_resource type="Script" path="res://actions.gd" id="1_gjl0o"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="2_rym5k"]
+[ext_resource type="PackedScene" uid="uid://dd2t1hso0knqh" path="res://Enemy.tscn" id="4_mo38q"]
+[ext_resource type="PackedScene" uid="uid://dcfj3g1o0mpge" path="res://Player.tscn" id="4_rq3dt"]
+[ext_resource type="Shader" path="res://liquid_rect.gdshader" id="5_lfsqh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vf0vl"]
+shader = ExtResource("5_lfsqh")
+shader_parameter/HealthAmount = 1.0
+shader_parameter/HealthColor = Color(0.64, 0.08, 0.08, 1)
+shader_parameter/WaveSpeed = 3.049
+shader_parameter/WavePeriod = 1.032
+shader_parameter/WaveAmplitude = 0.027
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,7 +33,7 @@ grow_vertical = 0
 columns = 4
 script = ExtResource("1_gjl0o")
 
-[node name="Button" type="Button" parent="GridContainer" groups=["action_buttons"]]
+[node name="Golden cut" type="Button" parent="GridContainer" groups=["action_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -115,7 +126,47 @@ dialog_text = "Quit To Menu?"
 [node name="QuitToDesktop" type="ConfirmationDialog" parent="MenuButton"]
 dialog_text = "Quit To Desktop?"
 
+[node name="Player" parent="." instance=ExtResource("4_rq3dt")]
+position = Vector2(496, 620)
+
+[node name="Enemy" parent="." instance=ExtResource("4_mo38q")]
+
+[node name="Sprite2D" parent="Enemy" index="0"]
+position = Vector2(1443, 296)
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -962.0
+offset_top = 4.0
+offset_bottom = 108.0
+grow_horizontal = 0
+value = 100.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_vf0vl")
+layout_mode = 0
+offset_top = 179.0
+offset_right = 131.0
+offset_bottom = 924.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 131.0
+offset_bottom = 745.0
+color = Color(0.545098, 0.545098, 0.545098, 1)
+
+[connection signal="button_pressed" from="GridContainer" to="Player" method="_on_grid_container_button_pressed"]
 [connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_pressed"]
 [connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_pressed"]
 [connection signal="confirmed" from="MenuButton/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_confirmed"]
 [connection signal="confirmed" from="MenuButton/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_confirmed"]
+[connection signal="action" from="Player" to="Enemy" method="_on_player_action"]
+[connection signal="button_renaming" from="Player" to="GridContainer" method="_on_player_button_renaming"]
+[connection signal="action" from="Enemy" to="Player" method="_on_enemy_action"]
+
+[editable path="Player"]
+[editable path="Enemy"]

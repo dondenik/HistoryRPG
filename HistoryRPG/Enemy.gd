@@ -1,6 +1,7 @@
 extends Node2D
 
 signal action(type, value, mods, name, crit_chance)
+signal turn_finished
 
 var actions = {}
 var health = 100
@@ -9,13 +10,17 @@ var items
 var status_effects = []
 var rng = RandomNumberGenerator.new()
 
-var status_effects_list = {"Freeze":freeze, "john":""}
+var status_effects_list = {"Freeze":freeze, "john":john}
 
 # for testing purposes only will later be imported
-var inventory = {"selected_items": {"Golden Sword": {"action": {"type": "attack","value": 5,"mods": ["ignoreDefence"], "name": "Golden cut", "crit_chance": 15}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": ""}}}}
+var inventory = Inventory.enemy_inventory
 
 func freeze():
-	pass
+	print("frozen")
+	return "skip"
+
+func john():
+	print("JONHNN")
 
 func _ready():
 	items = inventory.selected_items
@@ -27,6 +32,7 @@ func _ready():
 			actions[action["name"]] = action
 			var passive = Dictionary(item["passive"])
 			passives[passive["name"]] = passive
+			status_effects.append(passive.passive_status)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +53,8 @@ func mod_action(action_details):
 	var name = action_details.name
 	var crit_chance = action_details.crit_chance
 	action.emit(type, value, mods, name, crit_chance)
+	status_effect_graphics_clear()
+	turn_finished.emit()
 
 
 func _on_player_action(type, value, mods, name, crit_chance):
@@ -72,4 +80,19 @@ func calculate_mods(mods, value, type, name, crit_chance):
 		return damage
 
 func update_health_bar(health):
-	get_parent().get_node("EnemyHealthBar").value = health
+	var tween = create_tween()
+	tween.tween_property(get_parent().get_node("EnemyHealthBar"), "value", health, 0.3).from_current()
+
+
+func _on_control_enemy_turn():
+	var skip: bool = false
+	for status_effect in status_effects:
+		if status_effect != "":
+			if status_effects_list[status_effect].call() == "skip":
+				skip = true
+	if skip == true:
+		turn_finished.emit()
+
+func status_effect_graphics_clear():
+	pass
+

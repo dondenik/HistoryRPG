@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://fr0m00x4jxaq"]
+
+[ext_resource type="Script" path="res://selector.gd" id="1_s7ma2"]
+[ext_resource type="Material" uid="uid://c62olbesto7j4" path="res://selector_colorise.tres" id="2_1mso3"]
+[ext_resource type="Texture2D" uid="uid://baralot8c1jj7" path="res://Screen Shot 2023-08-10 at 10.01.48 AM.png" id="2_rq4ct"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7ma2")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0, 0.0313726, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("2_1mso3")
+layout_mode = 2
+offset_left = 726.0
+offset_top = 490.0
+offset_right = 840.526
+offset_bottom = 1442.0
+texture = ExtResource("2_rq4ct")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = ExtResource("2_1mso3")
+layout_mode = 2
+offset_left = 844.0
+offset_top = -344.0
+offset_right = 958.526
+offset_bottom = 608.0
+texture = ExtResource("2_rq4ct")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+material = ExtResource("2_1mso3")
+layout_mode = 2
+offset_left = 962.0
+offset_top = -347.0
+offset_right = 1076.53
+offset_bottom = 605.0
+texture = ExtResource("2_rq4ct")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+material = ExtResource("2_1mso3")
+layout_mode = 2
+offset_left = 1080.0
+offset_top = -350.0
+offset_right = 1194.53
+offset_bottom = 602.0
+texture = ExtResource("2_rq4ct")
+expand_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -478.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.00784314, 0, 0.0313726, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_bottom = -610.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.04)
+color = Color(0.00784314, 0, 0.0313726, 1)

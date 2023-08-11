@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_nhv2v")
-shader_parameter/shine_color = Color(0.9, 0.9, 0.9, 0.9)
-shader_parameter/shine_speed = 1.0
+shader_parameter/shine_color = Color(1, 0.372549, 0.372549, 1)
+shader_parameter/shine_speed = 5.8
 shader_parameter/shine_size = 0.01

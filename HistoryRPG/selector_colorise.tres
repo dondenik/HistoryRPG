@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c62olbesto7j4"]
+
+[ext_resource type="Shader" path="res://selector.gdshader" id="1_v5vvi"]
+
+[resource]
+shader = ExtResource("1_v5vvi")
+shader_parameter/blue_colorise = false

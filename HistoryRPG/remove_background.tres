@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://devulxtywdldi"]
+
+[ext_resource type="Shader" path="res://remove_background.gdshader" id="1_l55jo"]
+
+[resource]
+shader = ExtResource("1_l55jo")
+shader_parameter/color2 = Color(0.0862745, 0.215686, 0.235294, 1)
+shader_parameter/color1 = Color(0.0588235, 0.164706, 0.192157, 1)
+shader_parameter/color3 = Color(0.054902, 0.168627, 0.192157, 1)

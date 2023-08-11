@@ -2,6 +2,7 @@ extends Node2D
 
 signal action(type, value, mods, name, crit_chance)
 signal button_renaming(actions)
+signal turn_finished
 
 var actions = {}
 var health = 100
@@ -10,13 +11,16 @@ var items
 var status_effects = []
 var rng = RandomNumberGenerator.new()
 
-var status_effects_list = {"Freeze":freeze, "john":""}
+var status_effects_list = {"Freeze":freeze, "john":john}
 
-# for testing purposes only will later be imported
-var inventory = {"selected_items": {"Golden Sword": {"action": {"type": "attack","value": 5,"mods": ["ignoreDefence"], "name": "Golden Slice", "crit_chance": 15}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": ""}}}}
+var inventory = Inventory.player_inventory
 
 func freeze():
-	pass
+	print("frozen")
+	return "skip"
+	
+func john():
+	print("JOHnned")
 
 func _ready():
 	items = inventory.selected_items
@@ -28,6 +32,7 @@ func _ready():
 			actions[action["name"]] = action
 			var passive = Dictionary(item["passive"])
 			passives[passive["name"]] = passive
+			status_effects.append(passive.passive_status)
 	button_renaming.emit(actions)
 
 
@@ -53,6 +58,7 @@ func mod_action(action_details):
 	var name = action_details.name
 	var crit_chance = action_details.crit_chance
 	action.emit(type, value, mods, name, crit_chance)
+	turn_finished.emit()
 
 
 func _on_enemy_action(type, value, mods, name, crit_chance):
@@ -80,3 +86,14 @@ func calculate_mods(mods, value, type, name, crit_chance):
 func update_health_bar(health):
 	var adjusted_health = health / 100.0
 	get_parent().get_node("ColorRect").material.set_shader_parameter("HealthAmount", adjusted_health)
+
+
+func _on_control_player_turn():
+	var skip: bool
+	for status_effect in status_effects:
+		if status_effect != "":
+			if status_effects_list[status_effect].call() == "skip":
+				skip = true
+	if skip == true:
+		turn_finished.emit()
+		

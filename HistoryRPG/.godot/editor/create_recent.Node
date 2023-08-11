@@ -1,3 +1,4 @@
+Control
 Label
 ItemList
 Button
@@ -21,7 +22,6 @@ PopupPanel
 PopupMenu
 MenuBar
 MenuButton
-Control
 RichTextLabel
 OptionButton
 VBoxContainer

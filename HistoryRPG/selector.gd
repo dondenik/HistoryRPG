@@ -5,7 +5,7 @@ var num_tweens_done = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_slots([2,0,2,3])
+	set_slots([9,9,9,9])
 
 	
 

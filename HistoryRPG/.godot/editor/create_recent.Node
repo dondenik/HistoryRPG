@@ -1,5 +1,6 @@
-Button
 Label
+ItemList
+Button
 ColorRect
 TextureRect
 HBoxContainer

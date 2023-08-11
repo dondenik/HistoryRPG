@@ -10,3 +10,4 @@ res://Player.tscn
 res://Enemy.tscn
 res://inventory.tscn
 res://selector.gd
+res://inventory.gd

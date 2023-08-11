@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://drag.gd" id="1_0323n"]
 [ext_resource type="Script" path="res://GridContainer.gd" id="1_nxxsp"]
 [ext_resource type="Script" path="res://drag_and_drop.gd" id="3_4rch2"]
-[ext_resource type="Texture2D" uid="uid://cewg03047js4o" path="res://icon.svg" id="3_wy26h"]
+[ext_resource type="Texture2D" uid="uid://uh2xfla75bcs" path="res://rect7368-1-7-1-7-4-0-3.png" id="3_7qmqm"]
 [ext_resource type="Script" path="res://BackButton.gd" id="5_0hwyn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc3p4"]
@@ -60,7 +60,7 @@ offset_top = 54.0
 offset_right = 105.0
 offset_bottom = 210.0
 grow_horizontal = 2
-texture = ExtResource("3_wy26h")
+texture = ExtResource("3_7qmqm")
 script = ExtResource("3_4rch2")
 type = "head"
 
@@ -74,7 +74,7 @@ offset_top = 180.0
 offset_right = -53.0
 offset_bottom = 336.0
 grow_horizontal = 2
-texture = ExtResource("3_wy26h")
+texture = ExtResource("3_7qmqm")
 script = ExtResource("3_4rch2")
 type = "hand"
 
@@ -88,7 +88,7 @@ offset_top = 180.0
 offset_right = 266.0
 offset_bottom = 336.0
 grow_horizontal = 2
-texture = ExtResource("3_wy26h")
+texture = ExtResource("3_7qmqm")
 script = ExtResource("3_4rch2")
 type = "hand"
 
@@ -102,7 +102,7 @@ offset_top = 314.0
 offset_right = 105.0
 offset_bottom = 470.0
 grow_horizontal = 2
-texture = ExtResource("3_wy26h")
+texture = ExtResource("3_7qmqm")
 script = ExtResource("3_4rch2")
 type = "body"
 

@@ -8,21 +8,25 @@ var health = 100
 var passives = {}
 var items
 var status_effects = []
+var status_effects_to_remove = []
 var rng = RandomNumberGenerator.new()
 
-var status_effects_list = {"Freeze":freeze, "john":john}
+var status_effects_list = {"freeze":freeze, "john":john}
 
 # for testing purposes only will later be imported
 var inventory = Inventory.enemy_inventory
 
+
 func freeze():
-	print("frozen")
-	return "skip"
+	status_effects_to_remove.append("freeze")
+	if not rng.randi_range(0, 5):
+		return "skip"
 
 func john():
 	print("JONHNN")
 
 func _ready():
+	$Sprite2D.texture = load(Inventory.enemy_texture)
 	items = inventory.selected_items
 	items = Dictionary(items)
 	for item in items:
@@ -37,7 +41,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var status_string = ""
+	for effect in status_effects:
+		status_string = status_string + "\n" + effect
+	$Label.text = status_string
 
 
 func check_action(name):
@@ -46,7 +53,6 @@ func check_action(name):
 
 
 func mod_action(action_details):
-	print(action_details)
 	var type = action_details.type
 	var value = action_details.value
 	var mods = action_details.mods
@@ -58,6 +64,10 @@ func mod_action(action_details):
 
 
 func _on_player_action(type, value, mods, name, crit_chance):
+	# remove old status effects
+	for effect in status_effects_to_remove:
+		status_effects.erase(effect)
+	status_effects_to_remove = []
 	self.health -= calculate_mods(mods, value, type, name, crit_chance)
 	update_health_bar(self.health)
 
@@ -66,7 +76,6 @@ func calculate_mods(mods, value, type, name, crit_chance):
 	var defence: int
 	# apply status effects
 	for mod in mods:
-		print(mod)
 		if mod in status_effects_list and "ignore" not in mod:
 			status_effects.append(mod)
 	damage = value
@@ -92,6 +101,7 @@ func _on_control_enemy_turn():
 				skip = true
 	if skip == true:
 		turn_finished.emit()
+	mod_action(actions[actions.keys().pick_random()])
 
 func status_effect_graphics_clear():
 	pass

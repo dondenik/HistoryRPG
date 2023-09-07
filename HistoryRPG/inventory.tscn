@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdqspuwifst65"]
+[gd_scene load_steps=11 format=3 uid="uid://cdqspuwifst65"]
 
 [ext_resource type="Script" path="res://drag.gd" id="1_0323n"]
 [ext_resource type="Script" path="res://GridContainer.gd" id="1_nxxsp"]
 [ext_resource type="Script" path="res://drag_and_drop.gd" id="3_4rch2"]
 [ext_resource type="Texture2D" uid="uid://uh2xfla75bcs" path="res://rect7368-1-7-1-7-4-0-3.png" id="3_7qmqm"]
 [ext_resource type="Script" path="res://BackButton.gd" id="5_0hwyn"]
+[ext_resource type="Script" path="res://GoldNum.gd" id="6_b0rnd"]
+[ext_resource type="Texture2D" uid="uid://py57ia23d0gk" path="res://gold.png" id="6_bedae"]
+[ext_resource type="Shader" path="res://gold.gdshader" id="6_qoauy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc3p4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,6 +16,13 @@ border_width_top = 30
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.529412, 0.52549, 0.545098, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u74pl"]
+shader = ExtResource("6_qoauy")
+shader_parameter/shine_color = Color(0.9, 0.9, 0.9, 0.9)
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.01
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -152,5 +162,20 @@ offset_bottom = 104.0
 theme_override_font_sizes/font_size = 48
 text = "Back"
 script = ExtResource("5_0hwyn")
+
+[node name="GoldNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1566.0
+offset_top = 54.0
+offset_right = 1685.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 80
+text = "0"
+script = ExtResource("6_b0rnd")
+
+[node name="Gold" type="Sprite2D" parent="GoldNum"]
+material = SubResource("ShaderMaterial_u74pl")
+position = Vector2(231, 50)
+texture = ExtResource("6_bedae")
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

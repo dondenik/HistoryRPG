@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fr0m00x4jxaq"]
+[gd_scene load_steps=5 format=3 uid="uid://fr0m00x4jxaq"]
 
 [ext_resource type="Script" path="res://selector.gd" id="1_s7ma2"]
 [ext_resource type="Material" uid="uid://c62olbesto7j4" path="res://selector_colorise.tres" id="2_1mso3"]
 [ext_resource type="Texture2D" uid="uid://baralot8c1jj7" path="res://Screen Shot 2023-08-10 at 10.01.48 AM.png" id="2_rq4ct"]
+[ext_resource type="Theme" uid="uid://ck4v5j0lbpjrq" path="res://stone.tres" id="4_cax50"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -85,3 +86,88 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1, 1.04)
 color = Color(0.00784314, 0, 0.0313726, 1)
+
+[node name="EnemyPreview" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -391.0
+offset_bottom = 409.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="name_label" type="Label" parent="EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 70
+
+[node name="difficulty_label" type="Label" parent="EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+
+[node name="rewards_label" type="Label" parent="EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+
+[node name="Arrows" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 345.0
+offset_right = 719.0
+offset_bottom = 742.0
+metadata/_edit_group_ = true
+
+[node name="Up" type="Button" parent="Arrows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "⬆"
+
+[node name="Down" type="Button" parent="Arrows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "⬇"
+
+[node name="ad_bc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1206.0
+offset_top = 503.0
+offset_right = 1290.0
+offset_bottom = 589.0
+pivot_offset = Vector2(0, 43)
+theme_override_font_sizes/font_size = 60
+text = "BC"
+
+[node name="battle" type="Button" parent="."]
+modulate = Color(0.784314, 0.784314, 0.745098, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 108.0
+offset_right = 120.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_cax50")
+theme_override_font_sizes/font_size = 80
+text = "Fight"
+
+[connection signal="pressed" from="Arrows/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Arrows/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="battle" to="." method="_on_battle_pressed"]

@@ -20,8 +20,9 @@ func _get_drag_data(at_position):
 	set_drag_preview(self.duplicate())
 	return self
 
-func update_item(inv_item, tex, tooltip, inv_item_name):
+func update_item(inv_item, tex, tooltip, inv_item_name, type):
 	self.tooltip_text = tooltip
-	self.texture = tex
+	self.texture = load(tex)
 	self.inv_item  = inv_item
 	self.inv_item_name = inv_item_name
+	self.type = type

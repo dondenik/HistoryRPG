@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://fr0m00x4jxaq"]
+[gd_scene load_steps=6 format=3 uid="uid://fr0m00x4jxaq"]
 
 [ext_resource type="Script" path="res://selector.gd" id="1_s7ma2"]
 [ext_resource type="Material" uid="uid://c62olbesto7j4" path="res://selector_colorise.tres" id="2_1mso3"]
 [ext_resource type="Texture2D" uid="uid://baralot8c1jj7" path="res://Screen Shot 2023-08-10 at 10.01.48 AM.png" id="2_rq4ct"]
 [ext_resource type="Theme" uid="uid://ck4v5j0lbpjrq" path="res://stone.tres" id="4_cax50"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="5_8d5x7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -103,22 +104,25 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 3
-expand_mode = 1
+stretch_mode = 2
 
 [node name="name_label" type="Label" parent="EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 70
+autowrap_mode = 2
 
 [node name="difficulty_label" type="Label" parent="EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 60
+autowrap_mode = 2
 
 [node name="rewards_label" type="Label" parent="EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 60
+autowrap_mode = 2
 
 [node name="Arrows" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -168,6 +172,58 @@ theme = ExtResource("4_cax50")
 theme_override_font_sizes/font_size = 80
 text = "Fight"
 
+[node name="inventory_button" type="Button" parent="."]
+modulate = Color(0.784314, 0.784314, 0.745098, 0.784314)
+layout_mode = 0
+offset_left = 171.0
+offset_top = 490.0
+offset_right = 401.0
+offset_bottom = 589.0
+theme = ExtResource("4_cax50")
+theme_override_font_sizes/font_size = 40
+text = "Inventory"
+
+[node name="MenuButton" type="Button" parent="."]
+offset_right = 171.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 48
+text = "Menu"
+script = ExtResource("5_8d5x7")
+
+[node name="PopupPanel" type="PopupPanel" parent="MenuButton"]
+initial_position = 1
+size = Vector2i(500, 500)
+
+[node name="GridContainer" type="GridContainer" parent="MenuButton/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 496.0
+theme_override_constants/v_separation = 20
+
+[node name="QuitToMenu" type="Button" parent="MenuButton/PopupPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit To Main Menu"
+
+[node name="QuitToDesktop" type="Button" parent="MenuButton/PopupPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit To Desktop"
+
+[node name="QuitToMenu" type="ConfirmationDialog" parent="MenuButton"]
+dialog_text = "Quit To Menu?"
+
+[node name="QuitToDesktop" type="ConfirmationDialog" parent="MenuButton"]
+dialog_text = "Quit To Desktop?"
+
 [connection signal="pressed" from="Arrows/Up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="Arrows/Down" to="." method="_on_down_pressed"]
 [connection signal="pressed" from="battle" to="." method="_on_battle_pressed"]
+[connection signal="pressed" from="inventory_button" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_pressed"]
+[connection signal="pressed" from="MenuButton/PopupPanel/GridContainer/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_pressed"]
+[connection signal="confirmed" from="MenuButton/QuitToMenu" to="MenuButton" method="_on_quit_to_menu_confirmed"]
+[connection signal="confirmed" from="MenuButton/QuitToDesktop" to="MenuButton" method="_on_quit_to_desktop_confirmed"]

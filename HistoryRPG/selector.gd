@@ -2,7 +2,7 @@ extends Control
 @onready var slots = [$TextureRect, $TextureRect2, $TextureRect3, $TextureRect4]
 var num_tweens_done = 0
 var current_enemy_index = 0
-var enemies = [{"name": "Big John", "date": "1444", "difficulty": "Hard", "rewards": "1 Gold", "actions": "", "texture": "res://ea-nasir.jpeg", "ce":"AD"}, {"name": "Bigger John", "date": "1899", "difficulty": "Hard", "rewards": "1 Gold", "actions": "", "texture": "", "ce":"BC"}]
+var enemies = Inventory.enemies
 var in_progress = false
 var enemy
 
@@ -43,7 +43,7 @@ func tween_done(ce):
 		$EnemyPreview/TextureRect.texture = load(enemy.texture)
 		$EnemyPreview/difficulty_label.text = "Difficulty: " + enemy.difficulty
 		$EnemyPreview/name_label.text = enemy.name
-		$EnemyPreview/rewards_label.text = "Rewards: " + enemy.rewards
+		$EnemyPreview/rewards_label.text = "Rewards: " + str(enemy.rewards) + " Gold + " + enemy.actions.selected_items.keys()[0]
 	
 
 func switch_enemy(enemy_index):
@@ -78,3 +78,7 @@ func _on_down_pressed():
 
 func _on_battle_pressed():
 	get_tree().change_scene_to_file("res://battle.tscn")
+
+
+func _on_inventory_button_pressed():
+	get_tree().change_scene_to_file("res://inventory.tscn")

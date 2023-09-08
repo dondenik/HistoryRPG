@@ -159,6 +159,13 @@ offset_right = 1548.0
 offset_bottom = 529.0
 theme_override_font_sizes/font_size = 48
 
+[node name="Label2" type="Label" parent="Enemy"]
+offset_left = 1043.0
+offset_top = 211.0
+offset_right = 1295.0
+offset_bottom = 358.0
+theme_override_font_sizes/font_size = 20
+
 [node name="EnemyHealthBar" type="ProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 1

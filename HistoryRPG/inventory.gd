@@ -89,7 +89,7 @@ var enemies = [
 	}
   },
   "texture": "res://pickelhelm.jpeg",
-  "ce": "BC"
+  "ce": "AD"
 },
 {
   "name": "Genghis Khan",
@@ -249,6 +249,86 @@ var enemies = [
 	}
   },
   "texture": "res://julius-caesar.jpeg",
+  "ce": "BC"
+},
+{
+  "name": "Ea Nasir",
+  "date": "1750",
+  "difficulty": "Impossible",
+  "rewards": 6,
+  "actions": {
+	"selected_items": {
+	  "Clay Complaint Tablet": {
+		"action": {
+		  "type": "hand",
+		  "value": 8,
+		  "mods": [],
+		  "name": "Ignored Complaint Tablet Throw",
+		  "crit_chance": 15
+		},
+		"passive": {
+		  "name": "Unfazed",
+		  "defence": 1,
+		  "damage": 0,
+		  "passive_status": ""
+		},
+		"tooltip": "A complaint tablet Ea Nasir promptly ignored.",
+		"texture": "res://tablet.jpeg"
+	  },
+	  "River Boat": {
+		"action": {
+		  "type": "body",
+		  "value": 1,
+		  "mods": ["undermine"],
+		  "name": "Transport Copper",
+		  "crit_chance": 0
+		},
+		"passive": {
+		  "name": "Copper Mogul",
+		  "defence": 5,
+		  "damage": 0,
+		  "passive_status": ""
+		},
+		"tooltip": "Mesopotamian river boat.",
+		"texture": "res://river-boat.jpeg"
+	  },
+	  "Cool Beard": {
+		"action": {
+		  "type": "head",
+		  "value": 0,
+		  "mods": ["intimidate", "weaken"],
+		  "name": "Overwhelmingly Unbothered",
+		  "crit_chance": 0
+		},
+		"passive": {
+		  "name": "Great Salesman",
+		  "defence": 0,
+		  "damage": 0,
+		  "passive_status": ""
+		},
+		"tooltip": "A cool beard style that was popular at the time.",
+		"texture": "res://beard.jpeg"
+	  },
+	  "Bag of Shekels": {
+		"action": {
+		  "type": "hand",
+		  "value": 6,
+		  "mods": [],
+		  "name": "Money Slap",
+		  "crit_chance": 30
+		},
+		"passive": {
+		  "name": "Loaded",
+		  "defence": 1,
+		  "damage": 0,
+		  "passive_status": ""
+		},
+		"tooltip": "A bag of Babylonian money.",
+		"texture": "res://bag_shekels.jpeg"
+	  }
+	}
+  },
+  "texture": "res://ea-nasir.jpeg",
   "ce": "BC"
 }
 

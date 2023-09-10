@@ -10,6 +10,7 @@ var enemy
 func _ready():
 	# set slots to 2023 and remove finished coloring
 	set_slots("2023", "AD", 100.0, false)
+	$battle.hide()
 	self.in_progress = false
 	
 
@@ -44,6 +45,7 @@ func tween_done(ce):
 		$EnemyPreview/difficulty_label.text = "Difficulty: " + enemy.difficulty
 		$EnemyPreview/name_label.text = enemy.name
 		$EnemyPreview/rewards_label.text = "Rewards: " + str(enemy.rewards) + " Gold + " + enemy.actions.selected_items.keys()[0]
+		$battle.show()
 	
 
 func switch_enemy(enemy_index):
@@ -51,6 +53,7 @@ func switch_enemy(enemy_index):
 	set_slots(enemy.date, enemy.ce)
 	Inventory.enemy_inventory = enemy.actions
 	Inventory.enemy_texture = enemy.texture
+	Inventory.enemy_rewards = enemy.rewards
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -77,6 +80,7 @@ func _on_down_pressed():
 
 
 func _on_battle_pressed():
+	Inventory.enemies.erase(enemy)
 	get_tree().change_scene_to_file("res://battle.tscn")
 
 

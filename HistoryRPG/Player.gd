@@ -21,14 +21,14 @@ var inventory = Inventory.player_inventory
 
 func undermine():
 	status_effects_to_remove.append("undermine")
-	if not rng.randi_range(0,3):
+	if not rng.randi_range(0,2):
 		return "skip"
 
 func bleed():
 	status_effects_to_remove.append("bleed")
 	if not rng.randi_range(0,2):
 		self.health -= 1
-		self.update_health_bar(self.health / 100.0)
+		self.update_health_bar(self.health)
 
 func weaken():
 	status_effects_to_remove.append("weaken")
@@ -52,15 +52,17 @@ func _ready():
 			actions[action["name"]] = action
 			var passive = Dictionary(item["passive"])
 			passives[passive["name"]] = passive
-			status_effects.append(passive.passive_status)
+			if passive.passive_status != "":
+				status_effects.append(passive.passive_status)
 	button_renaming.emit(actions)
+	update_health_bar(self.health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var status_string = ""
 	for effect in status_effects:
-		status_string = status_string + "\n" + effect
+		status_string = status_string + "+" + effect + "\n"
 	$Label.text = status_string
 
 
@@ -134,6 +136,7 @@ func calculate_mods(mods, value, type, name, crit_chance):
 		return damage
 
 func update_health_bar(health):
+	Inventory.health = health
 	var adjusted_health = health / 100.0
 	get_parent().get_node("ColorRect").material.set_shader_parameter("HealthAmount", adjusted_health)
 

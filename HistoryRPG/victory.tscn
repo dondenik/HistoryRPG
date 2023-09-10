@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsef5fqtdgn7x"]
+[gd_scene load_steps=8 format=3 uid="uid://bsef5fqtdgn7x"]
 
 [ext_resource type="Texture2D" uid="uid://dyqdflwrk77wb" path="res://victory.png" id="1_2vpks"]
 [ext_resource type="Script" path="res://return_to_battle.gd" id="2_mpbrf"]
+[ext_resource type="Script" path="res://GoldNum2.gd" id="3_th510"]
+[ext_resource type="Shader" path="res://gold.gdshader" id="4_dkmsm"]
+[ext_resource type="Texture2D" uid="uid://py57ia23d0gk" path="res://gold.png" id="5_wkdb7"]
+[ext_resource type="Script" path="res://spend.gd" id="6_qioln"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6660p"]
+shader = ExtResource("4_dkmsm")
+shader_parameter/shine_color = Color(0.9, 0.9, 0.9, 0.9)
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.01
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,4 +47,47 @@ theme_override_font_sizes/font_size = 100
 text = "Continue"
 script = ExtResource("2_mpbrf")
 
+[node name="GoldNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1468.0
+offset_top = 54.0
+offset_right = 1685.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 80
+text = "0"
+autowrap_mode = 3
+script = ExtResource("3_th510")
+
+[node name="Gold" type="Sprite2D" parent="GoldNum"]
+material = SubResource("ShaderMaterial_6660p")
+position = Vector2(295, 50)
+texture = ExtResource("5_wkdb7")
+
+[node name="spend" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 796.0
+offset_right = 712.0
+offset_bottom = 941.0
+theme_override_font_sizes/font_size = 60
+text = "Spend Gold For Health"
+script = ExtResource("6_qioln")
+
+[node name="Label" type="Label" parent="spend"]
+layout_mode = 0
+offset_top = 145.0
+offset_right = 345.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 48
+text = "Current Health: "
+
+[node name="Label2" type="Label" parent="spend"]
+layout_mode = 0
+offset_top = 215.0
+offset_right = 370.0
+offset_bottom = 285.0
+theme_override_font_sizes/font_size = 48
+text = "Projected Health: "
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="spend" to="spend" method="_on_pressed"]

@@ -1,11 +1,12 @@
 extends Node
 
-var player_inventory = {"selected_items": {"Golden Sword": {"action": {"type": "attack","value": 14,"mods": ["bleed"], "name": "Golden cut", "crit_chance": 0}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": ""}, "tooltip": "tooltip", "texture": "res://ea-nasir.jpeg"}}}
+var player_inventory = {"selected_items": {"Fist": {"action": {"type": "attack","value": 3,"mods": ["ignoreDefence"], "name": "Punch", "crit_chance": 0}, "passive": {"name": "", "defence": 0, "damage": 0, "passive_status": ""}, "tooltip": "Punch!", "texture": ""}, "Leg": {"action": {"type": "attack","value": 1,"mods": ["evade"], "name": "Run", "crit_chance": 0}, "passive": {"name": "", "defence": 0, "damage": 0, "passive_status": ""}, "tooltip": "Run!", "texture": ""}, "Time Machine": {"action": {"type": "attack","value": 1,"mods": ["freeze", "ignoreDefence"], "name": "Time Freeze", "crit_chance": 0}, "passive": {"name": "Modern Casing", "defence": 2, "damage": 0, "passive_status": ""}, "tooltip": "Time Blast!", "texture": ""}, "Modern Tech": {"action": {"type": "attack","value": 1,"mods": ["weaken"], "name": "Confuse", "crit_chance": 0}, "passive": {"name": "", "defence": 0, "damage": 0, "passive_status": ""}, "tooltip": "Confusion!", "texture": ""}}}
 var enemy_inventory = {"selected_items": {"Golden Axe": {"action": {"type": "attack","value": 14,"mods": ["freeze"], "name": "Golden cut", "crit_chance": 0}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": ""}, "tooltip": "tooltip", "texture": "res://ea-nasir.jpeg"}}}
-var unlocked_items = {"Golden Sword": {"action": {"type": "head","value": 5,"mods": ["ignoreDefence"], "name": "Golden cut", "crit_chance": 15}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": ""}, "tooltip": "tooltip", "texture": "res://ea-nasir.jpeg"}}
+var unlocked_items = {}
 var health = 100
 var gold = 0
 var enemy_texture
+var enemy_rewards = 0
 #var enemies = [{"name": "Big John", "date": "1444", "difficulty": "Hard", "rewards": "1 Gold", "actions": {"selected_items": {"Golden Axe": {"action": {"type": "attack","value": 14,"mods": ["freeze"], "name": "Golden chop", "crit_chance": 0}, "passive": {"name": "Golden Glimmer", "defence": 4, "damage": 0, "passive_status": "john"}, "tooltip": "tooltip", "texture": "res://ea-nasir.jpeg"}}}, "texture": "res://ea-nasir.jpeg", "ce":"AD"}]
 
 
@@ -14,7 +15,7 @@ var enemies = [
 	{
   "name": "Otto Von Bismarck",
   "date": "1815",
-  "difficulty": "Hard",
+  "difficulty": "Easy",
   "rewards": 2,
   "actions": {
 	"selected_items": {
@@ -101,7 +102,7 @@ var enemies = [
 	  "Mongol Bow": {
 		"action": {
 		  "type": "hand",
-		  "value": 6,
+		  "value": 8,
 		  "mods": ["bleed"],
 		  "name": "Khan's Precision Shot",
 		  "crit_chance": 20
@@ -135,7 +136,7 @@ var enemies = [
 	  "Mongol Horse": {
 		"action": {
 		  "type": "body",
-		  "value": 0,
+		  "value": 3,
 		  "mods": ["evade"],
 		  "name": "Swift Ride",
 		  "crit_chance": 0
@@ -181,7 +182,7 @@ var enemies = [
 	  "Imperial Gladius": {
 		"action": {
 		  "type": "hand",
-		  "value": 5,
+		  "value": 7,
 		  "mods": ["intimidate"],
 		  "name": "Imperial Strike",
 		  "crit_chance": 15

@@ -47,13 +47,13 @@ script = ExtResource("1_gjl0o")
 use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button2" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 icon_alignment = 1
 expand_icon = true
 
@@ -62,42 +62,42 @@ use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button4" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button5" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button6" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button7" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="Button8" type="Button" parent="GridContainer" groups=["action_buttons"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Attack"
+text = "Unequipped"
 
 [node name="MenuButton" type="Button" parent="."]
 layout_mode = 0
@@ -145,7 +145,6 @@ offset_top = -85.0
 offset_right = 400.0
 offset_bottom = 62.0
 theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
 
 [node name="Enemy" parent="." instance=ExtResource("4_mo38q")]
 
@@ -154,15 +153,15 @@ position = Vector2(1443, 296)
 
 [node name="Label" type="Label" parent="Enemy"]
 offset_left = 1296.0
-offset_top = 382.0
+offset_top = 422.0
 offset_right = 1548.0
-offset_bottom = 529.0
+offset_bottom = 569.0
 theme_override_font_sizes/font_size = 48
 
 [node name="Label2" type="Label" parent="Enemy"]
-offset_left = 1043.0
+offset_left = 1009.0
 offset_top = 211.0
-offset_right = 1295.0
+offset_right = 1261.0
 offset_bottom = 358.0
 theme_override_font_sizes/font_size = 20
 
@@ -191,28 +190,6 @@ offset_right = 131.0
 offset_bottom = 745.0
 color = Color(0.545098, 0.545098, 0.545098, 1)
 metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 1296.0
-offset_top = 408.0
-offset_right = 1601.0
-offset_bottom = 705.0
-theme_override_font_sizes/font_size = 45
-text = "+Freeze
-+Strength"
-
-[node name="Label2" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 702.0
-offset_top = 535.0
-offset_right = 1007.0
-offset_bottom = 832.0
-theme_override_font_sizes/font_size = 45
-text = "+Freeze
-+Strength"
 
 [connection signal="enemy_turn" from="." to="GridContainer" method="_on_control_enemy_turn"]
 [connection signal="enemy_turn" from="." to="Enemy" method="_on_control_enemy_turn"]

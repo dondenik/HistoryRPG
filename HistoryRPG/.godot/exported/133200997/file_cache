@@ -1,0 +1,16 @@
+res://battle.tscn::cc276629717157413a4a577d9a2df168::1694342124::res://.godot/exported/133200997/export-49a6b4fa05300a416ddb548f932939e2-battle.scn
+res://dead.tscn::c154a106c4d352e5ed664ce95a40cff7::1694342125::res://.godot/exported/133200997/export-b869cfa1590ffef44243440297dfa122-dead.scn
+res://Enemy.tscn::4e6fdb764cb0ce4b62384483cf240aaf::1694342124::res://.godot/exported/133200997/export-c95b0eb5c5c309092e87826761594abf-Enemy.scn
+res://gleam.tres::7f7c922b53c9fc937c8e9673a1bbb785::1694074416::res://.godot/exported/133200997/export-49eaa7e92a32d2bae9c2561bbba7d011-gleam.res
+res://inventory.tscn::b9bf492fcbd58e47c8478767a31db4ad::1694342185::res://.godot/exported/133200997/export-52412470de2ef646f5dd089596d3e706-inventory.scn
+res://main_menu1.tscn::01ec698c7340ea5a83c42fe09a1aeaf9::1686622588::res://.godot/exported/133200997/export-4ec04db006982fd1d40d4084a894026d-main_menu1.scn
+res://main_menu2.tscn::84eb2ee82dba333d5e39aeba2d767e5b::1686622588::res://.godot/exported/133200997/export-df476dddce3bf59c1405df262f636514-main_menu2.scn
+res://main_menu3.tscn::c8bf9ddbca14e039e7bb77bf29be5057::1686699128::res://.godot/exported/133200997/export-8b6d98c21d0282ad30687bb7c9eb29d2-main_menu3.scn
+res://main_menu.tscn::318fa5b0cf32c4f0f5facf9b6530df3d::1694342124::res://.godot/exported/133200997/export-8b03550a1e82db90fe95208a9e9dbb82-main_menu.scn
+res://options_menu.tscn::75a459885d8e046411f196eeced7494e::1694342124::res://.godot/exported/133200997/export-77fc17826776f79fdadd0e113afac69d-options_menu.scn
+res://Player.tscn::c51e76610763941874d182252229b7f7::1694342124::res://.godot/exported/133200997/export-90e1ff3baa03524a506ff0f7a9d78dcf-Player.scn
+res://remove_background.tres::43baccac27f1e3bb9fe5b07d014bdbce::1694323181::res://.godot/exported/133200997/export-cfe5cc7c77c1a7da76f430c3532c6ad1-remove_background.res
+res://selection_menu.tscn::9f8f4f047ca29b96659f5ee7c429e7e2::1694342125::res://.godot/exported/133200997/export-f5dd6c8e2a7b9901f687819b441edcff-selection_menu.scn
+res://selector_colorise.tres::d5a1824b3f8f6dfa9c4458ab02cbbdc5::1694323181::res://.godot/exported/133200997/export-6cf26c6687fe3815233b95eba94fe37b-selector_colorise.res
+res://stone.tres::6eeea00886928f2eeb9a485a26aba89b::1694323181::res://.godot/exported/133200997/export-5fe89ebbbe96fafff0281c3c527cba9e-stone.res
+res://victory.tscn::8db3006faa20cf9398f1ccf5e5f046d4::1694343223::res://.godot/exported/133200997/export-9bdbed77b16d0f08c342f56e1d5d716d-victory.scn

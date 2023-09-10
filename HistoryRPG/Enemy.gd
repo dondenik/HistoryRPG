@@ -15,7 +15,7 @@ var evade_value = 0
 var intimidate_value = 0
 var strengthen_value = 0
 
-var status_effects_list = {"undermine":undermine, "bleed":bleed, "weaken":weaken, "evade":evade, "intimidate":intimidate, "Imperio-Praesentia":Imperio_Praesentia}
+var status_effects_list = {"freeze":freeze, "undermine":undermine, "bleed":bleed, "weaken":weaken, "evade":evade, "intimidate":intimidate, "Imperio-Praesentia":Imperio_Praesentia}
 
 # for testing purposes only will later be imported
 var inventory = Inventory.enemy_inventory
@@ -23,6 +23,11 @@ var inventory = Inventory.enemy_inventory
 
 func undermine():
 	status_effects_to_remove.append("undermine")
+	if not rng.randi_range(0, 1):
+		return "skip"
+
+func freeze():
+	status_effects_to_remove.append("freeze")
 	if not rng.randi_range(0, 3):
 		return "skip"
 
@@ -58,14 +63,15 @@ func _ready():
 			actions[action["name"]] = action
 			var passive = Dictionary(item["passive"])
 			passives[passive["name"]] = passive
-			status_effects.append(passive.passive_status)
+			if passive.passive_status != "":
+				status_effects.append(passive.passive_status)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var status_string = ""
 	for effect in status_effects:
-		status_string = status_string + "\n" + effect
+		status_string = status_string + "+" + effect + "\n"
 	$Label.text = status_string
 
 
@@ -143,6 +149,7 @@ func update_health_bar(health):
 
 func die():
 	Inventory.unlocked_items[items.keys()[0]] = items[items.keys()[0]]
+	Inventory.gold += Inventory.enemy_rewards
 	get_tree().change_scene_to_file("res://victory.tscn")
 
 func _on_control_enemy_turn():
